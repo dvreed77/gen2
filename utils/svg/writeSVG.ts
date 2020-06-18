@@ -1,5 +1,5 @@
 import { convertDistance, units } from "rapid-sketch";
-import { Point } from "../../api";
+import { Point } from "../types";
 
 export function polylineToSVGPath(
   polyline: Point[],
@@ -86,7 +86,6 @@ export function pathsToSVG(
     pathStrs: d.paths.map((p) => polylineToSVGPath(p, convertOptions)),
   }));
 
-  console.log(pathGrps2);
   var viewWidth = convertDistance(
     width,
     units,

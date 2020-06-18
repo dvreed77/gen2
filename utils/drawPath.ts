@@ -7,6 +7,7 @@ export function drawPath(
     drawPts = false,
     lineWidth = 1,
     strokeColor = "red",
+    fillColor = "red",
     closePath = false,
   } = {}
 ) {
@@ -20,9 +21,16 @@ export function drawPath(
     context.closePath();
   }
 
-  context.lineWidth = lineWidth;
-  context.strokeStyle = strokeColor;
-  context.stroke();
+  if (strokeColor) {
+    context.lineWidth = lineWidth;
+    context.strokeStyle = strokeColor;
+    context.stroke();
+  }
+
+  if (fillColor) {
+    context.fillStyle = fillColor;
+    context.fill();
+  }
 
   if (drawPts) {
     context.beginPath();
